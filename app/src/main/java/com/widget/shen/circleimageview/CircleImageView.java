@@ -69,6 +69,9 @@ public class CircleImageView extends ImageView {
     private float mDrawableRadius;
     private float mBorderRadius;
 
+    private float mDrawableCorner;
+    private float mBorderCorner;
+
     private boolean mReady;
     private boolean mSetupPending;
     private boolean mBorderOverlay;
@@ -147,9 +150,9 @@ public class CircleImageView extends ImageView {
                 canvas.drawCircle(mBorderRect.centerX(), mBorderRect.centerY(), mBorderRadius, mBorderPaint);
             }
         } else if (mType == TYPE_ROUNDRECT) {
-            canvas.drawRoundRect(mDrawableRect, roundRect_corner, roundRect_corner, mBitmapPaint);
+            canvas.drawRoundRect(mDrawableRect, mDrawableCorner, mDrawableCorner, mBitmapPaint);
             if (mBorderWidth > 0) {
-                canvas.drawRoundRect(mBorderRect, roundRect_corner, roundRect_corner, mBorderPaint);
+                canvas.drawRoundRect(mBorderRect, mBorderCorner, mBorderCorner, mBorderPaint);
             }
         }
     }
@@ -305,13 +308,25 @@ public class CircleImageView extends ImageView {
         mBorderRect.set(calculateBounds());
         mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2.0f, (mBorderRect.width() - mBorderWidth) / 2.0f);
 
+        mBorderCorner = Math.max(roundRect_corner - mBorderWidth/2, 0);
+        mDrawableCorner = Math.max(roundRect_corner - mBorderWidth, 0);
+
         mDrawableRect.set(mBorderRect);
-        if (mType == TYPE_CIRCLE && !mBorderOverlay && mBorderWidth > 0) {
-            mDrawableRect.inset(mBorderWidth - 1.0f, mBorderWidth - 1.0f);
-        }else if (mType == TYPE_ROUNDRECT){
-            mDrawableRect.inset(mBorderWidth/2.0f, mBorderWidth/2.0f);
+
+        if (mType == TYPE_ROUNDRECT){
             mBorderRect.inset(mBorderWidth /2.0f,mBorderWidth/2.0f);
+            if (mBorderOverlay && mBorderWidth > 0){
+                mDrawableCorner = roundRect_corner + mBorderWidth/2;
+            }
         }
+
+        if (!mBorderOverlay && mBorderWidth > 0) {
+            mDrawableRect.inset(mBorderWidth - 1.0f, mBorderWidth - 1.0f);
+        }
+//        else if (mType == TYPE_ROUNDRECT){
+//            mDrawableRect.inset(mBorderWidth/2.0f, mBorderWidth/2.0f);
+//            mBorderRect.inset(mBorderWidth /2.0f,mBorderWidth/2.0f);
+//        }
         mDrawableRadius = Math.min(mDrawableRect.height() / 2.0f, mDrawableRect.width() / 2.0f);
 
         updateShaderMatrix();

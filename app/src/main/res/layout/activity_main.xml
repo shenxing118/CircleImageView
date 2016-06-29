@@ -28,6 +28,15 @@
             app:border_color="@color/colorPrimary"
             app:border_width="5dp" />
 
+        <!--<com.widget.shen.circleimageview.CircleImageView-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@mipmap/avator3"-->
+            <!--app:border_overlay="true"-->
+            <!--app:border_color="@color/colorPrimary"-->
+            <!--app:border_width="5dp" />-->
+
         <com.widget.shen.circleimageview.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -45,6 +54,17 @@
             app:border_width="5dp"
             app:round_rect_corner="10dp"
             app:type="roundRect" />
+
+        <!--<com.widget.shen.circleimageview.CircleImageView-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@mipmap/avator3"-->
+            <!--app:border_color="@color/colorPrimary"-->
+            <!--app:border_width="5dp"-->
+            <!--app:border_overlay="true"-->
+            <!--app:round_rect_corner="10dp"-->
+            <!--app:type="roundRect" />-->
 
     </LinearLayout>
 
