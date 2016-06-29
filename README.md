@@ -5,4 +5,6 @@
 
 圆角矩形通过round_rect_corner属性设置圆角大小，圆角矩形暂不支持border_overlay属性（边框是否覆盖在图片上）
 
-![image](https://github.com/shenxing118/CircleImageView/blob/master/app/src/main/res/mipmap-xxhdpi/example.png)                       
+![image](https://github.com/shenxing118/CircleImageView/blob/master/app/src/main/res/mipmap-xxhdpi/example.png)    
+
+
