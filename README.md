@@ -1,4 +1,4 @@
-# CircleImageView
+# CircleImageView（圆形图片 圆角矩形）
 在 https://github.com/hdodenhof/CircleImageView 的基础上添加圆角矩形
 
 通过type属性定义类型，默认为圆形图片（circle,roundRect两种类型）
